@@ -1,0 +1,215 @@
+/* Asegura que el formulario esté centrado en la vista */
+.register-form {
+  width: 100%;
+  max-width: 600px;
+  margin: 280px auto;
+  text-align: center;
+  align-items: center;
+}
+
+/* Título */
+h1 {
+  font-size: 36px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Link de Sign in */
+.signin-link {
+  color: red;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.signin-link:hover {
+  text-decoration: underline;
+}
+
+/* Estilos de los inputs */
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  padding: 18px;
+  margin: 15px 0;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  font-size: 20px;
+  background-color: #f9f9f9;
+}
+
+/* Checkbox */
+.checkbox-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 15px 0;
+  font-size: 20px;
+}
+
+.checkbox-container input {
+  width: 22px;
+  height: 22px;
+  margin-right: 10px;
+}
+
+/* Botón */
+.btn-create {
+  width: 100%;
+  padding: 18px;
+  background-color: red;
+  color: white;
+  font-size: 22px;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: background 0.3s ease-in-out;
+}
+
+.btn-create:hover {
+  background-color: darkred;
+}
+
+.error {
+  color: red;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+/* Media Queries para hacer la vista responsive */
+@media (max-width: 1200px) {
+  .register-form {
+    margin: 200px auto;
+  }
+
+  h1 {
+    font-size: 32px;
+  }
+
+  .signin-link {
+    font-size: 18px;
+  }
+
+  input[type="email"],
+  input[type="password"] {
+    font-size: 18px;
+  }
+
+  .checkbox-container {
+    font-size: 18px;
+  }
+
+  .btn-create {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 992px) {
+  .register-form {
+    margin: 150px auto;
+  }
+
+  h1 {
+    font-size: 28px;
+  }
+
+  .signin-link {
+    font-size: 16px;
+  }
+
+  input[type="email"],
+  input[type="password"] {
+    font-size: 16px;
+  }
+
+  .checkbox-container {
+    font-size: 16px;
+  }
+
+  .btn-create {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 768px) {
+  .register-form {
+    margin: 100px auto;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+
+  .signin-link {
+    font-size: 14px;
+  }
+
+  input[type="email"],
+  input[type="password"] {
+    font-size: 14px;
+  }
+
+  .checkbox-container {
+    font-size: 14px;
+  }
+
+  .btn-create {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 576px) {
+  .register-form {
+    margin: 50px auto;
+  }
+
+  h1 {
+    font-size: 20px;
+  }
+
+  .signin-link {
+    font-size: 12px;
+  }
+
+  input[type="email"],
+  input[type="password"] {
+    font-size: 12px;
+  }
+
+  .checkbox-container {
+    font-size: 12px;
+  }
+
+  .btn-create {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 374px) {
+  .register-form {
+    margin: 30px auto;
+  }
+
+  h1 {
+    font-size: 18px;
+  }
+
+  .signin-link {
+    font-size: 10px;
+  }
+
+  input[type="email"],
+  input[type="password"] {
+    font-size: 10px;
+  }
+
+  .checkbox-container {
+    font-size: 10px;
+  }
+
+  .btn-create {
+    font-size: 12px;
+  }
+}
