@@ -1,0 +1,100 @@
+import { CommonModule } from '@angular/common';
+import { Component } from '@angular/core';
+import {
+  FormBuilder,
+  FormGroup,
+  FormsModule,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
+import {
+  MatDialog,
+} from '@angular/material/dialog';
+import { DialogModalComponent } from '../../components/dialog-modal/dialog-modal.component';
+import { userRegisterModel } from '../../models/auth/register.mode.auth';
+import { AuthService } from '../service/auth.service';
+
+@Component({
+  selector: 'app-auth-register',
+  imports: [
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
+  ],
+  templateUrl: './auth-register.component.html',
+  styleUrls: ['./auth-register.component.css']
+})
+export class AuthRegisterComponent {
+
+  registerForm: FormGroup;
+
+  /**
+   * Constructor of the AuthRegisterComponent.
+   * @param fb - FormBuilder to create the reactive form.
+   * @param authService - Authentication service to register the user.
+   * @param dialog - MatDialog service to open dialogs.
+   */
+  constructor(
+    private fb: FormBuilder,
+    private authService: AuthService,
+    private dialog: MatDialog
+  ) {
+    this.registerForm = this.fb.group({
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(6)]],
+      terms: [false, [Validators.requiredTrue]]
+    });
+  }
+
+  /**
+   * Method that is executed when the form is submitted.
+   * Validates the form and, if valid, registers the user.
+   */
+  onSubmit() {
+    // Validate if the form is valid or not
+    if (this.registerForm.invalid) {
+      this.registerForm.markAllAsTouched();
+      return;
+    }
+
+    // Set data to the userRegisterModel
+    const userRegister: userRegisterModel = { ...this.registerForm.value };
+
+    this.authService.register(userRegister).subscribe({
+      next: () => {
+        this.dialog.open(DialogModalComponent, {
+          data: { message: 'User registered successfully!', tittle: 'User Saved Successfully' }
+        });
+      },
+      error: (error) => {
+        this.dialog.open(DialogModalComponent, {
+          data: { message: error.message, tittle: 'Error' }
+        });
+      }
+    });
+  }
+
+  /**
+   * Getter for the email control of the form.
+   * @returns The email control.
+   */
+  get email() {
+    return this.registerForm.get('email');
+  }
+
+  /**
+   * Getter for the password control of the form.
+   * @returns The password control.
+   */
+  get password() {
+    return this.registerForm.get('password');
+  }
+
+  /**
+   * Getter for the terms control of the form.
+   * @returns The terms control.
+   */
+  get terms() {
+    return this.registerForm.get('terms');
+  }
+}
