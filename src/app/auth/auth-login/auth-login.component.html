@@ -1,0 +1,29 @@
+<form class="login-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+  <h1>Iniciar Sesión</h1>
+  <p>
+    <a href="register" class="signup-link">Crear Cuenta</a> Si no tienes una cuenta
+  </p>
+
+  <!-- Input Email -->
+  <input type="email" formControlName="email" placeholder="Email" required />
+  <div *ngIf="email?.invalid && (email?.touched || email?.dirty)" class="error">
+    <div *ngIf="email?.errors?.['required']">El email es requerido.</div>
+    <div *ngIf="email?.errors?.['email']">El email no es válido.</div>
+  </div>
+
+  <!-- Input Password -->
+  <input type="password" formControlName="password" placeholder="Password" required />
+  <div *ngIf="password?.invalid && (password?.touched || password?.dirty)" class="error">
+    <div *ngIf="password?.errors?.['required']">La contraseña es requerida.</div>
+  </div>
+
+  <!-- Forget Password -->
+  <p class="forgot-password">
+    <a routerLink="/forgot-password" class="signup-link">Olvidé mi contraseña</a>
+  </p>
+
+  <!-- Button to send -->
+  <button type="submit" class="btn-login" [disabled]="loginForm.invalid">
+    Iniciar Sesión
+  </button>
+</form>

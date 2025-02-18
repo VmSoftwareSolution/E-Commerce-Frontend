@@ -13,13 +13,13 @@ export class HandleErrorService {
    * @returns An Observable that throws an error with a user-friendly message.
    */
   public handleError(error: HttpErrorResponse) {
-    let errorMessage = 'An unknown error occurred. Please try again later.';
+    let errorMessage = 'Ocurrio un error, porfavor intente mas tarde.';
 
     if (error.error?.error) {
       const errorText: string = error.error.error.toLowerCase();
 
       if (errorText.includes('duplicate key value') && errorText.includes('email')) {
-        errorMessage = 'The email address is already registered. Please try another one.';
+        errorMessage = 'El email ya esta registrado, porfavor intente con uno nuevo.';
       } else {
         errorMessage = error.error.error;
       }

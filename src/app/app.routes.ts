@@ -9,5 +9,9 @@ export const routes: Routes = [
     path: '',
     redirectTo:'register',
     pathMatch:'full'
+  },
+  {
+    path: 'login',
+    loadComponent: () => import('./auth/auth-login/auth-login.component').then(m => m.AuthLoginComponent)
   }
 ];

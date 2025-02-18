@@ -1,4 +1,4 @@
-.register-form {
+.login-form {
   width: 100%;
   max-width: 600px;
   margin: 280px auto;
@@ -14,18 +14,18 @@ h1 {
 }
 
 /* Link de Sign in */
-.signin-link {
+.signup-link {
   color: red;
   text-decoration: none;
   font-size: 20px;
   font-weight: bold;
 }
 
-.signin-link:hover {
+.signup-link:hover {
   text-decoration: underline;
 }
 
-/* Styles to inputs*/
+/* Style to inputs */
 input[type="email"],
 input[type="password"] {
   width: 100%;
@@ -37,23 +37,10 @@ input[type="password"] {
   background-color: #f9f9f9;
 }
 
-/* Checkbox */
-.checkbox-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 15px 0;
-  font-size: 20px;
-}
 
-.checkbox-container input {
-  width: 22px;
-  height: 22px;
-  margin-right: 10px;
-}
 
 /* Button */
-.btn-create {
+.btn-login {
   width: 100%;
   padding: 18px;
   background-color: red;
@@ -68,15 +55,22 @@ input[type="password"] {
   transition: background 0.3s ease-in-out;
 }
 
-.btn-create:hover {
+.btn-login:hover {
   background-color: darkred;
 }
+
+.forgot-password {
+  text-align: left;
+  margin: 10px ;
+}
+
 
 .error {
   color: red;
   font-size: 12px;
   margin-top: 5px;
 }
+
 
 /* Media Queries to responsive */
 @media (max-width: 1200px) {
