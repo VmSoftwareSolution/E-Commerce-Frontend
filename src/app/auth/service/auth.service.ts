@@ -1,4 +1,4 @@
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, Observable, throwError } from 'rxjs';
 import { userRegisterModel } from '../../models/auth/register.mode.auth';
@@ -21,7 +21,7 @@ export class AuthService {
   ) { }
 
   // URL for the backend to register a new user
-  private api = environment.apiUrl+"auth/register";
+  private api = environment.apiUrl+"auth/";
 
   // URL for the backend to register a new user
   /**
@@ -30,7 +30,18 @@ export class AuthService {
    * @returns An Observable of the HTTP response.
    */
   register(registerUser: userRegisterModel): Observable<any> {
-    return this.http.post(this.api, registerUser).pipe(
+    return this.http.post(this.api+"register", registerUser).pipe(
+      catchError(this.handleError.handleError)
+    );
+  }
+
+  /**
+   * Logs in a user.
+   * @param loginUser - The login credentials for the user.
+   * @returns An Observable of the HTTP response.
+  */
+  login(loginUser: userRegisterModel): Observable<any> {
+    return this.http.post(this.api+"login", loginUser).pipe(
       catchError(this.handleError.handleError)
     );
   }
