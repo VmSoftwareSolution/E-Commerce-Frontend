@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } 
 import { AuthService } from '../service/auth.service';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogModalComponent } from '../../components/dialog-modal/dialog-modal.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-auth-login',
@@ -26,6 +27,7 @@ export class AuthLoginComponent {
     private fb: FormBuilder,
     private authService: AuthService,
     private dialog: MatDialog,
+    private router: Router,
   ) {
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
@@ -50,12 +52,16 @@ export class AuthLoginComponent {
       next: (token) => {
         document.cookie = `jwToken=${JSON.stringify(token)};path=/;Max-Age=86400`;
 
-        this.dialog.open(DialogModalComponent,{
+        const dialogRef = this.dialog.open(DialogModalComponent,{
           data: {
             tittle: 'Bienvenido',
             message: 'Usuario autenticado correctamente',
           }
         })
+
+        dialogRef.afterClosed().subscribe(() => {
+          this.router.navigate(['listProducts']);
+        });
       },
       error: (error) => {
         this.dialog.open(DialogModalComponent, {
