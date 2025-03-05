@@ -41,26 +41,6 @@
   color: black;
 }
 
-/*Resolution to TV 4K*/
-@media (max-width: 1920px) {
-
-
-  .navbar {
-    width: calc(100% - 300px);
-  }
-
-  .menu-items li {
-    font-size: 18px;
-  }
-
-  .search-container{
-    width: 70%;
-  }
-
-  .icons{
-    padding-right: 180px;
-  }
-}
 
 /*Responsive to TV 4K*/
 @media (max-width: 1920px), (max-width: 1800px), (max-width: 1600px), (max-width: 1500px) {
@@ -71,7 +51,7 @@
     width: 60%;
   }
   .icons {
-    padding-right: 140px;
+    padding-right: 50px;
   }
 }
 
@@ -83,7 +63,7 @@
   }
 
   .icons{
-    padding-right: 110px;
+    padding-right: 40px;
     gap: 10px;
   }
 
@@ -92,15 +72,14 @@
   }
 }
 
-
-/*resolution to Tables */
 @media (max-width: 1024px){
   .navbar {
+    padding: 10px 50px;
     margin-left: 200px;
   }
 
   .icons{
-    padding-right: 40px;
+    padding-right: 5px;
     gap: 7px;
   }
 
@@ -114,9 +93,6 @@
     width: 60%;
   }
 
-  .icons{
-    padding-right: 20px;
-  }
 }
 
 /*Resolution to Cellphone*/
@@ -137,7 +113,7 @@
   }
 
   .icons{
-    padding-right: 65px;
+    padding-right: 15px;
     gap: 10px;
   }
 }
@@ -148,26 +124,20 @@
   }
 }
 
-@media (max-width: 495px) {
-  .search-container{
-    width: 50%;
-  }
-}
-
 @media (max-width: 506px) {
   .search-container{
     width: 50%;
   }
+}
+
+@media (max-width: 495px) {
+  .search-container{
+    width: 50%;
+  }
 
   .icons{
-    padding-right: 48px;
+    padding-right: 10px;
   }
 }
 
-@media (max-width: 375px) {
-  .icons{
-    padding-right: 28px;
-    gap: 10px;
-  }
-}
 
