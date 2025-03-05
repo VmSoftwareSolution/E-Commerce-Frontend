@@ -5,6 +5,7 @@
   background-color: white;
   padding: 10px 20px;
   border-bottom: 2px solid black;
+  margin-left: 250px;
 }
 
 .logo {
@@ -39,3 +40,134 @@
   cursor: pointer;
   color: black;
 }
+
+/*Resolution to TV 4K*/
+@media (max-width: 1920px) {
+
+
+  .navbar {
+    width: calc(100% - 300px);
+  }
+
+  .menu-items li {
+    font-size: 18px;
+  }
+
+  .search-container{
+    width: 70%;
+  }
+
+  .icons{
+    padding-right: 180px;
+  }
+}
+
+/*Responsive to TV 4K*/
+@media (max-width: 1920px), (max-width: 1800px), (max-width: 1600px), (max-width: 1500px) {
+  .navbar {
+    width: calc(100% - 300px);
+  }
+  .search-container {
+    width: 60%;
+  }
+  .icons {
+    padding-right: 140px;
+  }
+}
+
+
+/*resolution to Tables */
+@media (max-width: 1280px){
+  .navbar {
+    width: calc 250px;
+  }
+
+  .icons{
+    padding-right: 110px;
+    gap: 10px;
+  }
+
+  .search-container{
+    width: 65%;
+  }
+}
+
+
+/*resolution to Tables */
+@media (max-width: 1024px){
+  .navbar {
+    margin-left: 200px;
+  }
+
+  .icons{
+    padding-right: 40px;
+    gap: 7px;
+  }
+
+  .search-container{
+    width: 65%;
+  }
+}
+
+@media (max-width: 838px) {
+  .search-container{
+    width: 60%;
+  }
+
+  .icons{
+    padding-right: 20px;
+  }
+}
+
+/*Resolution to Cellphone*/
+@media (max-width: 768px ) {
+  .navbar {
+    width: calc(100% - 60px);
+    margin-left: 60px;
+    padding: 10px;
+  }
+
+  .logo{
+    width: 30px;
+    height: 30px;
+  }
+
+  .search-container{
+    width: 70%;
+  }
+
+  .icons{
+    padding-right: 65px;
+    gap: 10px;
+  }
+}
+
+@media (max-width: 659px) {
+  .search-container{
+    width: 60%;
+  }
+}
+
+@media (max-width: 495px) {
+  .search-container{
+    width: 50%;
+  }
+}
+
+@media (max-width: 506px) {
+  .search-container{
+    width: 50%;
+  }
+
+  .icons{
+    padding-right: 48px;
+  }
+}
+
+@media (max-width: 375px) {
+  .icons{
+    padding-right: 28px;
+    gap: 10px;
+  }
+}
+
