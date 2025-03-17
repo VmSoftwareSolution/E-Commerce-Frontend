@@ -1,0 +1,74 @@
+table {
+  border-top: 2px solid black;
+  border-left: 2px solid black;
+  border-right: 2px solid black;
+}
+
+
+/* Place Holder */
+.mat-mdc-form-field {
+  margin-top:  80px;
+  width: 70%;
+  margin-left: 20%;
+}
+
+/* Table */
+.mat-elevation-z8 {
+  width: 80%;
+  margin-left: 15%;
+}
+
+
+/* Content to Email and Role */
+.mat-column-Email,
+.mat-column-Role{
+  width: 300px;
+  text-align: left;
+  border-bottom: 2px solid black;
+  text-align: left;
+}
+
+/* Content to Actions */
+.mat-column-Actions{
+  width: 10px;
+  text-align: left;
+  border-bottom: 2px solid black;
+}
+
+/*Header Table*/
+th.mat-column-Email,
+th.mat-column-Role,
+th.mat-column-Actions {
+  background-color: #840606;
+  color: white;
+  font-weight: bold;
+  border-bottom: 2px solid black;
+}
+
+/* Paginator*/
+.mat-mdc-paginator {
+  background-color: #840606;
+  color: white;
+  display: block;
+}
+
+/* Buttons to delete and update */
+button{
+  margin: 5px;
+  width: 60px;
+  height: 60px;
+  border-radius: 16px;
+  border: none;
+  background-color:   #d9e7ff;
+  color:  black;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color:  #840606;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}

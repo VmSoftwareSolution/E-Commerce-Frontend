@@ -21,6 +21,10 @@
   width: 100%;
 }
 
+a{
+  color:white;
+  text-decoration: none;
+}
 .menu-items li {
   width: 88%;
   padding: 15px;
