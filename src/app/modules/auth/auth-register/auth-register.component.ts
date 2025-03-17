@@ -10,10 +10,10 @@ import {
 import {
   MatDialog,
 } from '@angular/material/dialog';
-import { DialogModalComponent } from '../../components/dialog-modal/dialog-modal.component';
-import { userRegisterModel } from '../../models/auth/register.mode.auth';
 import { AuthService } from '../service/auth.service';
 import { Router } from '@angular/router';
+import { userRegisterModel } from '../register.model.auth';
+import { DialogModalComponent } from '../../../shared/components/dialog-modal/dialog-modal.component';
 
 @Component({
   selector: 'app-auth-register',

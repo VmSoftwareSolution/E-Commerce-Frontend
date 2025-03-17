@@ -3,9 +3,9 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AuthService } from '../service/auth.service';
 import { MatDialog } from '@angular/material/dialog';
-import { DialogModalComponent } from '../../components/dialog-modal/dialog-modal.component';
 import { Router } from '@angular/router';
-import { TokenService } from '../../service/token.service';
+import { TokenService } from '../../../core/service/token.service';
+import { DialogModalComponent } from '../../../shared/components/dialog-modal/dialog-modal.component';
 
 @Component({
   selector: 'app-auth-login',
