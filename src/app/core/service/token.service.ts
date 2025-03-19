@@ -6,7 +6,9 @@ import { isPlatformBrowser } from '@angular/common';
 })
 export class TokenService {
 
-  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
+  constructor(
+    @Inject(PLATFORM_ID) private platformId: Object
+  ) {}
 
   /**
    * Retrieves the JWT token stored in the AuthLoginComponent.
@@ -14,10 +16,6 @@ export class TokenService {
    * @returns The token as a string if found, otherwise null.
    */
   public getToken(): string | null {
-    if (!isPlatformBrowser(this.platformId)) {
-      return null; // Prevents errors in SSR
-    }
-
     return localStorage.getItem('jwToken');
   }
 

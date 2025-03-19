@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, Inject, OnInit, PLATFORM_ID, ViewChild} from '@angular/core';
 import {MatPaginator, MatPaginatorModule} from '@angular/material/paginator';
 import {MatSort, MatSortModule} from '@angular/material/sort';
 import {MatTableDataSource, MatTableModule} from '@angular/material/table';
@@ -7,106 +7,102 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { SlideMenuComponent } from '../../../shared/components/slide-menu/slide-menu.component';
 import { NavbarComponent } from '../../../shared/components/navbar/navbar.component';
-
-export interface UserData {
-  id: string;
-  name: string;
-  roles: string;
-}
-
-/** Constants used to fill up our data base. */
-const Roles: string[] = [
-  'blueberry',
-  'lychee',
-  'kiwi',
-  'mango',
-  'peach',
-  'lime',
-  'pomegranate',
-  'pineapple',
-];
-const Emails: string[] = [
-  'Maia@gmail.com',
-  'Asher@gmail.com',
-  'Olivia@gmail.com',
-  'Atticus@gmail.com',
-  'Amelia@gmail.com',
-  'Jack@gmail.com',
-  'Charlotte@gmail.com',
-  'Theodore@gmail.com',
-  'Isla@gmail.com',
-  'Oliver@gmail.com',
-  'Isabella@gmail.com',
-  'Jasper@gmail.com',
-  'Cora@gmail.com',
-  'Levi@gmail.com',
-  'Violet@gmail.com',
-  'Arthur@gmail.com',
-  'Mia@gmail.com',
-  'Thomas@gmail.com',
-  'Elizabeth@gmail.com',
-];
-
-
+import { UsersService } from '../service/users.service';
+import { isPlatformBrowser } from '@angular/common';
+import { HttpErrorResponse } from '@angular/common/http';
+import { Router } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogModalComponent } from '../../../shared/components/dialog-modal/dialog-modal.component';
+import { FilterService } from '../../../core/service/filter.service';
 @Component({
   selector: 'app-users-list',
-   imports: [
-      MatFormFieldModule,
-      MatInputModule,
-      MatTableModule,
-      MatSortModule,
-      MatPaginatorModule,
-      MatIconModule,
-      SlideMenuComponent,
-      NavbarComponent
-    ],
+  imports: [
+    MatFormFieldModule,
+    MatInputModule,
+    MatTableModule,
+    MatSortModule,
+    MatPaginatorModule,
+    MatIconModule,
+    SlideMenuComponent,
+    NavbarComponent
+  ],
   templateUrl: './users-list.component.html',
-  styleUrl: './users-list.component.css'
+  styleUrls: ['./users-list.component.css']
 })
 export class UsersListComponent implements AfterViewInit {
+
+  //Columns to be displayed in the user list
   displayedColumns: string[] = ['Email', 'Role', 'Actions'];
-    dataSource: MatTableDataSource<UserData>;
 
-    @ViewChild(MatPaginator)paginator!: MatPaginator;
-    @ViewChild(MatSort) sort!: MatSort;
+  //Data source for the user list
+  dataSource: MatTableDataSource<any> = new MatTableDataSource();
 
-    constructor() {
-      // Create 100 users
-      const users = Array.from({length: 100}, (_, k) => createNewUser(k + 1));
+  //Paginator and sort references
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild(MatSort) sort!: MatSort;
 
-      // Assign the data to the data source for the table to render
-      this.dataSource = new MatTableDataSource(users);
-    }
+  constructor(
+    private usersService: UsersService,
+    private router: Router,
+    private dialog: MatDialog,
+    private filterService: FilterService,
+    @Inject(PLATFORM_ID) private platformId: Object,
+  ) {}
 
-    ngAfterViewInit() {
-      this.dataSource.paginator = this.paginator;
-      this.dataSource.sort = this.sort;
-
-    }
-
-    //COMEBACK: Missing Documentation
-    applyFilter(event: Event) {
-      const filterValue = (event.target as HTMLInputElement).value;
-      this.dataSource.filter = filterValue.trim().toLowerCase();
-
-      if (this.dataSource.paginator) {
-        this.dataSource.paginator.firstPage();
-      }
+  ngAfterViewInit(): void {
+    //Load the users only if the platform is the browser
+    if (isPlatformBrowser(this.platformId)) {
+      this.loadUsers();
     }
   }
 
-  /** Builds and returns a new User. */
-  function createNewUser(id: number): UserData {
-    const name =
-      Emails[Math.round(Math.random() * (Emails.length - 1))] +
-      ' ' ;
+  /**
+   * Loads the list of users from the backend and assigns the data
+   * to the data table.
+   * This method retrieves the user list and maps the relevant fields.
+   */
+  loadUsers(): void {
+    this.usersService.getAllUsers().subscribe({
+      next: (response) => {
+        //Map the user data to the table data source
+        this.dataSource.data = response[0].Data.map((user:any) => ({
+          Email: user.email,
+          Role: user.role.name,
+        }));
 
-    const roles =
-      Roles[Math.round(Math.random() * (Roles.length - 1))] +
-      ' ' ;
-    return {
-      id: id.toString(),
-      name: name,
-      roles: roles,
-    };
+        //Assign the paginator and sort to the dataSource
+        this.dataSource.paginator = this.paginator;
+        this.dataSource.sort = this.sort;
+      },
+      error: (error: HttpErrorResponse) => {
+        //Valid if the token is expired
+        if (error.status === 403) {
+
+          //Show message
+          const dialogRef = this.dialog.open(DialogModalComponent,{
+            data:{
+              tittle: "Sesion Expirada",
+              message: "La sesion ha expirado, por favor inicie sesion nuevamente"
+            }
+          })
+
+          //Redirect to login when the message is closed
+          dialogRef.afterClosed().subscribe(() => {
+            this.router.navigate(['login']);
+          });
+        }
+      }
+    });
+  }
+
+
+  /**
+   * Applies a filter to the user list based on the input value.
+   *
+   * @param event The event triggered by the user input.
+  */
+  applyFilter(event: Event): void {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.filterService.applyFilter(this.dataSource, filterValue);
+  }
 }
