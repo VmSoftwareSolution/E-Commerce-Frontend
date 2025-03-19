@@ -1,9 +1,9 @@
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, Observable, throwError } from 'rxjs';
-import { userRegisterModel } from '../../models/auth/register.mode.auth';
-import { HandleErrorService } from '../../service/HandleError.service';
-import { environment } from '../../../../environment.dev';
+import { HandleErrorService } from '../../../core/service/HandleError.service';
+import { userRegisterModel } from '../register.model.auth';
+import { environment } from '../../../../../environment.dev';
 
 @Injectable({
   providedIn: 'root'

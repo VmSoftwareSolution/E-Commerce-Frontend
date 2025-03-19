@@ -10,9 +10,10 @@ import {
 import {
   MatDialog,
 } from '@angular/material/dialog';
-import { DialogModalComponent } from '../../components/dialog-modal/dialog-modal.component';
-import { userRegisterModel } from '../../models/auth/register.mode.auth';
 import { AuthService } from '../service/auth.service';
+import { Router } from '@angular/router';
+import { userRegisterModel } from '../register.model.auth';
+import { DialogModalComponent } from '../../../shared/components/dialog-modal/dialog-modal.component';
 
 @Component({
   selector: 'app-auth-register',
@@ -37,7 +38,8 @@ export class AuthRegisterComponent {
   constructor(
     private fb: FormBuilder,
     private authService: AuthService,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private router:Router
   ) {
     this.registerForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
@@ -62,9 +64,14 @@ export class AuthRegisterComponent {
 
     this.authService.register(userRegister).subscribe({
       next: () => {
-        this.dialog.open(DialogModalComponent, {
+        const dialogRef = this.dialog.open(DialogModalComponent, {
           data: { message: 'User registered successfully!', tittle: 'User Saved Successfully' }
         });
+
+        dialogRef.afterClosed().subscribe(() => {
+          this.router.navigate(['login']);
+        });
+
       },
       error: (error) => {
         this.dialog.open(DialogModalComponent, {
@@ -97,4 +104,5 @@ export class AuthRegisterComponent {
   get terms() {
     return this.registerForm.get('terms');
   }
+
 }
