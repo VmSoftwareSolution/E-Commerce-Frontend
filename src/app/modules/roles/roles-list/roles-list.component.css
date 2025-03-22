@@ -1,0 +1,166 @@
+table {
+  border-top: 2px solid black;
+  border-left: 2px solid black;
+  border-right: 2px solid black;
+}
+
+.tittle{
+  color:  #840606;
+  font-size: 50px;
+  margin-top: 6%;
+  margin-left: 20%;
+}
+
+.tittle i{
+  font-size: 80px;
+}
+
+/* Place Holder */
+.mat-mdc-form-field {
+  width: 70%;
+  margin-left: 20%;
+}
+
+/* Table */
+.mat-elevation-z8 {
+  width: 80%;
+  margin-left: 15%;
+}
+
+
+/* Content to Name and Description */
+.mat-column-Name,
+.mat-column-Description{
+  width: 300px;
+  text-align: left;
+  border-bottom: 2px solid black;
+  text-align: left;
+}
+
+/* Content to Actions */
+.mat-column-Actions{
+  width: 10px;
+  text-align: left;
+  border-bottom: 2px solid black;
+}
+
+/*Header Table*/
+th.mat-column-Name,
+th.mat-column-Description,
+th.mat-column-Actions {
+  background-color: #840606;
+  color: white;
+  font-weight: bold;
+  border-bottom: 2px solid black;
+  font-size: 20px;
+}
+
+/* Paginator*/
+.mat-mdc-paginator {
+  background-color: #840606;
+  color: white;
+  display: block;
+}
+
+/* Rows to filter ASC or DESC (Email,Role) */
+::ng-deep .mat-sort-header-arrow {
+  color: white;
+  font-weight: bold;
+  opacity: 1;
+}
+
+
+/* Buttons to delete and update */
+button{
+  margin: 5px;
+  width: 60px;
+  height: 60px;
+  border-radius: 16px;
+  border: none;
+  background-color:   #d9e7ff;
+  color:  black;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color:  #840606;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+
+/* Responsive Design */
+@media (min-width: 1500px ) and (max-width: 1920px){
+  /* Table */
+  .mat-elevation-z8{
+    width: 75%;
+    margin-left: 19%;
+  }
+
+  /* Place Holder */
+  .mat-mdc-form-field{
+    width: 73%;
+    margin-left: 19%;
+  }
+}
+
+@media (min-width: 1250px) and (max-width: 1499px){
+  /* Table */
+  .mat-elevation-z8{
+    width: 75%;
+    margin-left: 22%;
+  }
+
+  /* Place Holder */
+  .mat-mdc-form-field{
+    margin-left: 22%;
+  }
+}
+
+@media (min-width:1100px) and (max-width:1249px) {
+
+  /* Table */
+  .mat-elevation-z8{
+    width: 68%;
+    margin-left: 26%;
+  }
+
+  /* Place Holder */
+  .mat-mdc-form-field{
+    width: 64%;
+    margin-left: 26%;
+  }
+}
+
+@media (min-width: 771px) and (max-width: 1099px) {
+
+  /* Table */
+  .mat-elevation-z8{
+    width: 58%;
+    margin-left: 32%;
+  }
+
+  /* Place Holder */
+  .mat-mdc-form-field{
+    width: 54%;
+    margin-left: 32%;
+  }
+}
+
+@media (max-width: 658px) {
+   /* Table */
+   .mat-elevation-z8{
+    width: 70%;
+    margin-left: 22%;
+  }
+
+  /* Place Holder */
+  .mat-mdc-form-field{
+    width: 63%;
+    margin-left: 22%;
+  }
+}
