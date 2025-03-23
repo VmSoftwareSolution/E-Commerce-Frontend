@@ -58,7 +58,7 @@
 /* Design Responsive */
 @media (min-width: 1500px) and (max-width: 1920px){
   .navbar {
-    width: calc(100% - 300px);
+    width: calc(101% - 300px);
   }
   .search-container {
     width: 60%;
@@ -75,7 +75,7 @@
   }
 
   .icons{
-    padding-right: 80px;
+    padding-right: 20px;
     gap: 10px;
   }
 
@@ -91,7 +91,7 @@
   }
 
   .icons{
-    padding-right: 35px;
+    padding-right: 10px;
     gap: 7px;
   }
 
@@ -123,7 +123,79 @@
   }
 
   .icons{
-    padding-right: 60px;
+    padding-right: 20px;
     gap: 10px;
   }
 }
+
+@media (min-width: 409px) and (max-width: 495px ) {
+  .navbar {
+    width: calc(100% - 50px);
+    margin-left: 60px;
+    padding: 10px;
+  }
+
+  .logo{
+    margin-left: 57px;
+    width: 20px;
+    height: 20px;
+  }
+
+  .search-container{
+    width: 150px;
+  }
+
+  .icons{
+    padding-right: 8px;
+  }
+}
+
+
+@media (min-width: 384px) and (max-width: 408px) {
+  .navbar {
+    width: calc(100% - 40px);
+    margin-left: 60px;
+    padding: 10px;
+  }
+
+  .logo{
+    margin-left: 60px;
+    width: 30px;
+    height: 30px;
+  }
+
+  .search-container{
+    width: 40%;
+  }
+
+  .icons{
+    padding-right: 3px;
+  }
+}
+
+
+@media (min-width: 320px) and (max-width: 383px ) {
+  .navbar {
+    width: 113%;
+    margin-left: 60px;
+    padding: 10px;
+  }
+
+  .logo{
+    margin-left: 60px;
+    width: 30px;
+    height: 30px;
+  }
+
+  .icons{
+    padding-right: 3px;
+    gap: 1px;
+  }
+}
+
+
+
+
+
+
+
