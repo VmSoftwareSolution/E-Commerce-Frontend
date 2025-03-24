@@ -2,7 +2,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: white;
+  background-color: rgb(87, 81, 81);
   padding: 10px 20px;
   border-bottom: 2px solid black;
   margin-left: 250px;
@@ -11,7 +11,7 @@
 .logo {
   width: 40px;
   height: 40px;
-  background-color: red;
+  background-color: black;
   border-radius: 50%;
 }
 
@@ -24,11 +24,24 @@
   width: 50%;
 }
 
+.search-container {
+  align-items: center;
+  background: #f8f8f8;
+  border-radius: 8px;
+  padding: 8px 12px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 45%;
+}
+
 .search-container input {
   border: none;
   outline: none;
   width: 100%;
+  background: transparent;
+  font-size: 15px;
 }
+
 
 .icons {
   display: flex;
@@ -36,34 +49,33 @@
 }
 
 .icons i {
-  font-size: 20px;
+  font-size: 30px;
   cursor: pointer;
   color: black;
 }
 
 
-/*Responsive to TV 4K*/
-@media (max-width: 1920px), (max-width: 1800px), (max-width: 1600px), (max-width: 1500px) {
+/* Design Responsive */
+@media (min-width: 1500px) and (max-width: 1920px){
   .navbar {
-    width: calc(100% - 300px);
+    width: calc(101% - 300px);
   }
   .search-container {
     width: 60%;
   }
   .icons {
-    padding-right: 50px;
+    padding-right: 90px;
   }
 }
 
 
-/*resolution to Tables */
-@media (max-width: 1280px){
+@media (min-width: 1025px) and (max-width: 1499px){
   .navbar {
     width: calc 250px;
   }
 
   .icons{
-    padding-right: 40px;
+    padding-right: 20px;
     gap: 10px;
   }
 
@@ -72,31 +84,28 @@
   }
 }
 
-@media (max-width: 1024px){
+@media (min-width: 769px) and (max-width: 1024px){
   .navbar {
     padding: 10px 50px;
     margin-left: 200px;
   }
 
   .icons{
-    padding-right: 5px;
+    padding-right: 10px;
     gap: 7px;
   }
 
   .search-container{
     width: 65%;
   }
-}
 
-@media (max-width: 838px) {
-  .search-container{
-    width: 60%;
+  .logo {
+    margin-left: 20px;
   }
-
 }
 
-/*Resolution to Cellphone*/
-@media (max-width: 768px ) {
+
+@media (min-width:496px) and (max-width: 768px ) {
   .navbar {
     width: calc(100% - 60px);
     margin-left: 60px;
@@ -104,6 +113,7 @@
   }
 
   .logo{
+    margin-left: 60px;
     width: 30px;
     height: 30px;
   }
@@ -113,31 +123,79 @@
   }
 
   .icons{
-    padding-right: 15px;
+    padding-right: 20px;
     gap: 10px;
   }
 }
 
-@media (max-width: 659px) {
-  .search-container{
-    width: 60%;
+@media (min-width: 409px) and (max-width: 495px ) {
+  .navbar {
+    width: calc(100% - 50px);
+    margin-left: 60px;
+    padding: 10px;
   }
-}
 
-@media (max-width: 506px) {
-  .search-container{
-    width: 50%;
+  .logo{
+    margin-left: 57px;
+    width: 20px;
+    height: 20px;
   }
-}
 
-@media (max-width: 495px) {
   .search-container{
-    width: 50%;
+    width: 150px;
   }
 
   .icons{
-    padding-right: 10px;
+    padding-right: 8px;
   }
 }
+
+
+@media (min-width: 384px) and (max-width: 408px) {
+  .navbar {
+    width: calc(100% - 40px);
+    margin-left: 60px;
+    padding: 10px;
+  }
+
+  .logo{
+    margin-left: 60px;
+    width: 30px;
+    height: 30px;
+  }
+
+  .search-container{
+    width: 40%;
+  }
+
+  .icons{
+    padding-right: 3px;
+  }
+}
+
+
+@media (min-width: 320px) and (max-width: 383px ) {
+  .navbar {
+    width: 113%;
+    margin-left: 60px;
+    padding: 10px;
+  }
+
+  .logo{
+    margin-left: 60px;
+    width: 30px;
+    height: 30px;
+  }
+
+  .icons{
+    padding-right: 3px;
+    gap: 1px;
+  }
+}
+
+
+
+
+
 
 

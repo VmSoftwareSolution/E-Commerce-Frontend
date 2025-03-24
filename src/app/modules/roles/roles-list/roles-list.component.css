@@ -4,17 +4,14 @@ table {
   border-right: 2px solid black;
 }
 
-/* Tittle */
 .tittle{
   color:  #840606;
   font-size: 50px;
   margin-top: 6%;
-  margin-bottom: -2%;
-  margin-left: 19%;
+  margin-left: 20%;
 }
 
 .tittle i{
-   color:  #840606;
   font-size: 80px;
 }
 
@@ -31,9 +28,9 @@ table {
 }
 
 
-/* Content to Email and Role */
-.mat-column-Email,
-.mat-column-Role{
+/* Content to Name and Description */
+.mat-column-Name,
+.mat-column-Description{
   width: 300px;
   text-align: left;
   border-bottom: 2px solid black;
@@ -48,8 +45,8 @@ table {
 }
 
 /*Header Table*/
-th.mat-column-Email,
-th.mat-column-Role,
+th.mat-column-Name,
+th.mat-column-Description,
 th.mat-column-Actions {
   background-color: #840606;
   color: white;
@@ -109,31 +106,27 @@ button:hover {
     width: 73%;
     margin-left: 19%;
   }
-
-  .tittle{
-    font-size: 50px;
-    margin-left: 19%;
-  }
 }
 
 @media (min-width: 1250px) and (max-width: 1499px){
   /* Table */
   .mat-elevation-z8{
     width: 75%;
-    margin-left: 20%;
+    margin-left: 22%;
   }
 
   /* Place Holder */
   .mat-mdc-form-field{
-    margin-left: 20%;
+    margin-left: 22%;
   }
 
+  /* Tittle */
   .tittle{
     font-size: 40px;
-    margin-left: 20%;
   }
 
   .tittle i{
+    margin-left: 30px;
     font-size: 70px;
   }
 }
@@ -152,152 +145,121 @@ button:hover {
     margin-left: 26%;
   }
 
+  /* Tittle */
   .tittle{
     font-size: 30px;
-    margin-left: 26%;
   }
 
   .tittle i{
+    margin-left: 80px;
     font-size: 60px;
   }
 }
 
-@media (min-width: 771px) and (max-width: 1099px) {
+@media (min-width: 930px) and (max-width: 1099px) {
 
   /* Table */
   .mat-elevation-z8{
     width: 58%;
-    margin-left: 37%;
+    margin-left: 32%;
   }
 
   /* Place Holder */
   .mat-mdc-form-field{
     width: 54%;
-    margin-left: 37%;
+    margin-left: 32%;
   }
 
+  /* Tittle */
   .tittle{
     font-size: 20px;
-    margin-left: 37%;
   }
 
   .tittle i{
+    margin-left: 130px;
     font-size: 50px;
   }
 }
 
-@media (min-width: 600px) and (max-width: 770px) {
+@media (min-width: 825px) and (max-width: 929px) {
    /* Table */
    .mat-elevation-z8{
-    width: 70%;
-    margin-left: 23%;
+    width: 60%;
+    margin-left: 33%;
   }
 
   /* Place Holder */
   .mat-mdc-form-field{
-    width: 55%;
-    margin-left: 23%;
+    width: 52%;
+    margin-left: 33%;
   }
 
+  /* Tittle */
   .tittle{
-    font-size: 15px;
-    margin-left: 21%;
-    margin-bottom: 2px;
+    font-size: 20px;
   }
 
   .tittle i{
-    font-size: 30px;
+    margin-left: 130px;
+    font-size: 50px;
   }
 }
 
-@media (min-width: 522px) and (max-width: 599px) {
+
+@media (max-width: 824px) {
   /* Table */
   .mat-elevation-z8{
-   width: 60%;
-   margin-left: 32%;
+   width: 80%;
+   margin-left: 18%;
  }
 
  /* Place Holder */
  .mat-mdc-form-field{
-   width: 50%;
-   margin-left: 32%;
- }
-
- .tittle{
-   font-size: 10px;
-   margin-left: 33%;
-   margin-bottom: 2px;
- }
-
- .tittle i{
-   font-size: 30px;
- }
-}
-
-
-@media (min-width:496px) and (max-width: 521px) {
-  /* Table */
-  .mat-elevation-z8{
    width: 70%;
-   margin-left: 29%;
+   margin-left: 18%;
  }
 
- /* Place Holder */
- .mat-mdc-form-field{
-   width: 45%;
-   margin-left: 29%;
- }
-
+ /* Tittle */
  .tittle{
-   font-size: 10px;
-   margin-left: 30%;
-   margin-bottom: 2px;
+   font-size: 20px;
+   margin-left: 19px;
  }
 
  .tittle i{
-   font-size: 30px;
+   margin-left: 130px;
+   font-size: 50px;
  }
 }
 
+/* Movil */
 @media (max-width: 425px){
   /* Table */
   .mat-elevation-z8 {
-    width: 70%;
+    width: 78%;
     margin-left: 28%;
   }
 
   /* Place Holder */
   .mat-mdc-form-field {
     width: 55%;
-    margin-left: 31%;
+    margin-left: 37%;
   }
 
   .tittle {
     font-size: 16px;
-    margin-left: 31%;
+    margin-left: 1%;
   }
 
   .tittle i {
     font-size: 30px;
   }
 
-  /* Content to Email and Role */
-  .mat-column-Email,
-  .mat-column-Role {
-    width: 5%;
-    font-size: 10px;
-  }
-
-  /* Content to Actions */
-  .mat-column-Actions {
-    width: 4px;
-  }
 
   /*Header Table*/
   th.mat-column-Email,
   th.mat-column-Role,
   th.mat-column-Actions {
-    font-size: 100%;
+    font-size: 80%;
   }
 
   /* Buttons to delete and update */
@@ -312,19 +274,19 @@ button:hover {
 @media (max-width: 375px){
   /* Table */
   .mat-elevation-z8 {
-    width: 77%;
-    margin-left: 31%;
+    width: 90%;
+    margin-left: 37%;
   }
 
   /* Place Holder */
   .mat-mdc-form-field {
-    width: 55%;
-    margin-left: 45%;
+    width: 80%;
+    margin-left: 37%;
   }
 
   .tittle {
-    font-size: 16px;
-    margin-left: 35%;
+    font-size: 12px;
+    margin-left: 1%;
   }
 
   .tittle i {
@@ -362,19 +324,19 @@ button:hover {
 @media (max-width: 320px){
   /* Table */
   .mat-elevation-z8 {
-    width: 70%;
+    width: 100%;
     margin-left: 35%;
   }
 
   /* Place Holder */
   .mat-mdc-form-field {
-    width: 70%;
+    width: 80%;
     margin-left: 45%;
   }
 
   .tittle {
-    font-size: 16px;
-    margin-left: 40%;
+    font-size: 12px;
+    margin-left: 1%;
   }
 
   .tittle i {
